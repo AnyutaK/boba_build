@@ -25,15 +25,16 @@ function DrinkBuilder() {
 
       {teaBases.map((tea) => (
         <button
-          key={tea}
-          onClick={() =>
+        key={tea}
+        className={drink.base === tea ? "selected" : ""}
+        onClick={() =>
             setDrink({
-              ...drink,
-              base: tea
+            ...drink,
+            base: tea
             })
-          }
+        }
         >
-          {tea}
+        {tea}
         </button>
       ))}
 
@@ -43,6 +44,7 @@ function DrinkBuilder() {
       {sweetnessLevels.map((level) => (
         <button
           key={level}
+          className={drink.sweetness === level ? "selected" : ""}
           onClick={() =>
             setDrink({
               ...drink,
@@ -60,6 +62,7 @@ function DrinkBuilder() {
       {iceLevels.map((ice) => (
         <button
           key={ice}
+          className={drink.ice === ice ? "selected" : ""}
           onClick={() =>
             setDrink({
               ...drink,
@@ -77,6 +80,7 @@ function DrinkBuilder() {
       {toppings.map((item) => (
         <button
           key={item}
+          className={drink.topping === item ? "selected" : ""}
           onClick={() =>
             setDrink({
               ...drink,

@@ -7,26 +7,19 @@ body {
   margin-top: 30px;
   padding: 25px;
   width: 300px;
-
   background: white;
   border-radius: 20px;
-
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-
   text-align: center;
 }
 button {
   margin: 5px;
   padding: 10px 15px;
-
   border: none;
   border-radius: 20px;
-
   background: #ffd6e7;
-
   cursor: pointer;
 }
-
 button:hover {
   transform: scale(1.05);
 }
@@ -36,8 +29,11 @@ button:hover {
   gap: 50px;
   align-items: flex-start;
 }
-
-
 .options-panel {
   width: 350px;
+}
+.selected {
+  background: #c084fc;
+  color: white;
+  transform: scale(1.05);
 }
