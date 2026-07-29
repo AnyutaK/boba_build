@@ -1,4 +1,6 @@
 import { useState } from "react";
+import DrinkCard from "./DrinkCard";
+
 import {
   teaBases,
   sweetnessLevels,
@@ -87,11 +89,7 @@ function DrinkBuilder() {
       ))}
 
 
-      <h3>Your Selection:</h3>
-
-      <pre>
-        {JSON.stringify(drink, null, 2)}
-      </pre>
+      <DrinkCard drink={drink} />
 
     </div>
   );
