@@ -18,9 +18,9 @@ function DrinkBuilder() {
   });
 
 
-  return (
-    <div>
-
+ return (
+  <div className="builder-container">
+    <div className="options-panel">
       <h2>Choose your Tea Base 🍵</h2>
 
       {teaBases.map((tea) => (
@@ -87,12 +87,9 @@ function DrinkBuilder() {
           {item}
         </button>
       ))}
-
-
-      <DrinkCard drink={drink} />
-
+      </div>
+    <DrinkCard drink={drink} />
     </div>
   );
 }
-
 export default DrinkBuilder;

@@ -30,3 +30,14 @@ button {
 button:hover {
   transform: scale(1.05);
 }
+.builder-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  align-items: flex-start;
+}
+
+
+.options-panel {
+  width: 350px;
+}
