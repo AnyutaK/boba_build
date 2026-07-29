@@ -1,6 +1,7 @@
 import { useState } from "react";
 import DrinkBuilder from "./components/DrinkBuilder";
 import DrinkCard from "./components/DrinkCard";
+import BubbleCup from "./components/BubbleCup";
 
 function App() {
 
@@ -13,20 +14,31 @@ function App() {
 
 
   return (
-    <div className="app">
+  <div className="app">
 
-      <h1>🧋 Bubble Tea Builder</h1>
-      <p>Create your perfect drink!</p>
+    <h1>🧋 Bubble Tea Builder</h1>
+    <p>Create your perfect drink!</p>
+
+
+    <div className="main-layout">
 
       <DrinkBuilder 
         drink={drink}
         setDrink={setDrink}
       />
 
-      <DrinkCard drink={drink} />
+
+      <div className="preview-panel">
+
+        <DrinkCard drink={drink} />
+
+        <BubbleCup drink={drink} />
+
+      </div>
 
     </div>
-  );
-}
+
+  </div>
+);}
 
 export default App;

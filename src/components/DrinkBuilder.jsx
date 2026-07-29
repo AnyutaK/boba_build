@@ -1,88 +1,74 @@
-import DrinkCard from "./DrinkCard";
 import {
   teaBases,
   sweetnessLevels,
   iceLevels,
   toppings
 } from "../data/options";
-
 function DrinkBuilder({ drink, setDrink }) {
-
- return (
-  <div className="builder-container">
-    <div className="options-panel">
-      <h2>Choose your Tea Base 🍵</h2>
-
-      {teaBases.map((tea) => (
-        <button
-        key={tea}
-        className={drink.base === tea ? "selected" : ""}
-        onClick={() =>
-            setDrink({
-            ...drink,
-            base: tea
-            })
-        }
-        >
-        {tea}
-        </button>
-      ))}
-
-
-      <h2>Sweetness 🍯</h2>
-
-      {sweetnessLevels.map((level) => (
-        <button
-          key={level}
-          className={drink.sweetness === level ? "selected" : ""}
-          onClick={() =>
-            setDrink({
-              ...drink,
-              sweetness: level
-            })
-          }
-        >
-          {level}
-        </button>
-      ))}
-
-
-      <h2>Ice ❄️</h2>
-
-      {iceLevels.map((ice) => (
-        <button
-          key={ice}
-          className={drink.ice === ice ? "selected" : ""}
-          onClick={() =>
-            setDrink({
-              ...drink,
-              ice: ice
-            })
-          }
-        >
-          {ice}
-        </button>
-      ))}
-
-
-      <h2>Topping 🧋</h2>
-
-      {toppings.map((item) => (
-        <button
-          key={item}
-          className={drink.topping === item ? "selected" : ""}
-          onClick={() =>
-            setDrink({
-              ...drink,
-              topping: item
-            })
-          }
-        >
-          {item}
-        </button>
-      ))}
+  return (
+    <div className="builder-container">
+      <div className="options-panel">
+        <h2>Choose your Tea Base 🍵</h2>
+        {teaBases.map((tea) => (
+          <button
+            key={tea}
+            className={drink.base === tea ? "selected" : ""}
+            onClick={() =>
+              setDrink({
+                ...drink,
+                base: tea
+              })
+            }
+          >
+            {tea}
+          </button>
+        ))}
+        <h2>Sweetness 🍯</h2>
+        {sweetnessLevels.map((level) => (
+          <button
+            key={level}
+            className={drink.sweetness === level ? "selected" : ""}
+            onClick={() =>
+              setDrink({
+                ...drink,
+                sweetness: level
+              })
+            }
+          >
+            {level}
+          </button>
+        ))}
+        <h2>Ice ❄️</h2>
+        {iceLevels.map((ice) => (
+          <button
+            key={ice}
+            className={drink.ice === ice ? "selected" : ""}
+            onClick={() =>
+              setDrink({
+                ...drink,
+                ice: ice
+              })
+            }
+          >
+            {ice}
+          </button>
+        ))}
+        <h2>Topping 🧋</h2>
+        {toppings.map((item) => (
+          <button
+            key={item}
+            className={drink.topping === item ? "selected" : ""}
+            onClick={() =>
+              setDrink({
+                ...drink,
+                topping: item
+              })
+            }
+          >
+            {item}
+          </button>
+        ))}
       </div>
-    <DrinkCard drink={drink} />
     </div>
   );
 }
