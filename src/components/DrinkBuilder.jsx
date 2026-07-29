@@ -1,6 +1,4 @@
-import { useState } from "react";
 import DrinkCard from "./DrinkCard";
-
 import {
   teaBases,
   sweetnessLevels,
@@ -8,15 +6,7 @@ import {
   toppings
 } from "../data/options";
 
-function DrinkBuilder() {
-
-  const [drink, setDrink] = useState({
-    base: "",
-    sweetness: "",
-    ice: "",
-    topping: ""
-  });
-
+function DrinkBuilder({ drink, setDrink }) {
 
  return (
   <div className="builder-container">
