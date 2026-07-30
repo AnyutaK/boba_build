@@ -228,18 +228,27 @@ button.selected {
 
 .liquid {
   position: absolute;
-
   bottom: 0;
 
   width: 100%;
   height: 75%;
 
-  display: flex;
+  overflow: hidden;
 
-  justify-content: center;
-  align-items: flex-end;
+  animation: fillCup 1.2s ease;
+}
 
-  transition: background-color .5s;
+
+@keyframes fillCup {
+
+  from {
+    height: 0%;
+  }
+
+  to {
+    height: 75%;
+  }
+
 }
 
 /* Pearls */
@@ -580,22 +589,84 @@ button.selected {
 
 .liquid-wave {
 
-  position: absolute;
+  position:absolute;
 
-  top: -8px;
-  left: -10%;
+  top:-15px;
 
-  width: 120%;
-  height: 30px;
+  left:-20%;
 
-  background: rgba(255,255,255,.35);
+  width:140%;
 
-  border-radius: 50%;
+  height:35px;
 
-  animation: wave 4s infinite ease-in-out;
+  overflow:hidden;
 
 }
 
+
+.wave {
+
+  position:absolute;
+
+  width:120%;
+
+  height:35px;
+
+  border-radius:50%;
+
+}
+
+
+.wave1 {
+
+  background:rgba(255,255,255,.35);
+
+  top:0;
+
+  left:0;
+
+  animation:waveMove 4s infinite ease-in-out;
+
+}
+
+
+.wave2 {
+
+  background:rgba(255,255,255,.18);
+
+  top:8px;
+
+  left:40px;
+
+  animation:waveMove 3s infinite reverse ease-in-out;
+
+}
+
+
+
+@keyframes waveMove {
+
+0% {
+
+transform:translateX(-20px);
+
+}
+
+
+50% {
+
+transform:translateX(20px);
+
+}
+
+
+100% {
+
+transform:translateX(-20px);
+
+}
+
+}
 
 @keyframes wave {
 
@@ -976,5 +1047,64 @@ button.selected {
   50% {
     transform:translateY(-5px);
   }
+
+}
+.mascot-card {
+
+margin-top:25px;
+
+padding:20px;
+
+background:#fff8f4;
+
+border-radius:25px;
+
+text-align:center;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.08);
+
+}
+
+
+.mascot {
+
+font-size:60px;
+
+animation:
+bounce 2s infinite;
+
+}
+
+
+@keyframes bounce {
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+}
+.liquid-wave {
+  animation:
+  wave 2s infinite ease-in-out,
+  splash .8s ease;
+}
+
+
+@keyframes splash {
+
+from {
+opacity:0;
+transform:translateY(-20px);
+}
+
+to {
+opacity:1;
+transform:translateY(0);
+}
 
 }

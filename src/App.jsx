@@ -2,6 +2,7 @@ import { useState } from "react";
 import DrinkBuilder from "./components/DrinkBuilder";
 import DrinkCard from "./components/DrinkCard";
 import ShareCard from "./components/ShareCard";
+import Mascot from "./components/Mascot";
 
 function App() {
 
@@ -37,7 +38,7 @@ function App() {
   <div className="preview-panel">
 
     <DrinkCard drink={drink}/>
-
+    <Mascot drink={drink}/>
   </div>
 
   </div>

@@ -1,5 +1,6 @@
+  
   function BubbleCup({ drink }) {
-
+   const fillKey = `${drink.base}-${drink.ice}-${drink.topping}`;
   function getCupColor() {
 
   if (drink.base === "Matcha") {
@@ -152,13 +153,17 @@ function renderIce() {
   <div className="glass-shine"></div>
 
      <div
+     key={fillKey}
   className="liquid"
   style={{
   background: getCupColor()
   }}
 >
 
-  <div className="liquid-wave"></div>
+  <div className="liquid-wave">
+  <div className="wave wave1"></div>
+  <div className="wave wave2"></div>
+</div>
  {renderIce()}
 
   {renderToppings()}
