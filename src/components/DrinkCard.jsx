@@ -1,3 +1,4 @@
+import BubbleCup from "./BubbleCup";
 function DrinkCard({ drink }) {
 
   function generateDrinkName(drink) {
@@ -75,6 +76,7 @@ function DrinkCard({ drink }) {
 <h2>
   {generateDrinkName(drink)}
 </h2>
+      <BubbleCup drink={drink} />
       <h3>
         {drink.base || "Choose your tea"}
       </h3>

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import DrinkBuilder from "./components/DrinkBuilder";
 import DrinkCard from "./components/DrinkCard";
-import BubbleCup from "./components/BubbleCup";
 
 function App() {
 
@@ -31,9 +30,6 @@ function App() {
       <div className="preview-panel">
 
         <DrinkCard drink={drink} />
-
-        <BubbleCup drink={drink} />
-
       </div>
 
     </div>

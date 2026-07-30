@@ -1,118 +1,616 @@
-body {
+
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #fff7f2;
+  padding: 0;
+  box-sizing: border-box;
 }
-.drink-card {
-  margin-top: 30px;
-  padding: 25px;
-  width: 300px;
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+
+body {
+  background: #FFF8F4;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #4B3B38;
+}
+
+/* ---------- App ---------- */
+
+.app {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.app h1 {
   text-align: center;
+  font-size: 3rem;
 }
-button {
-  margin: 5px;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 20px;
-  background: #ffd6e7;
-  cursor: pointer;
-}
-button:hover {
-  transform: scale(1.05);
-}
-.builder-container {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-  align-items: flex-start;
-}
-.options-panel {
-  width: 350px;
-}
-.selected {
-  background: #c084fc;
-  color: white;
-  transform: scale(1.05);
-}
-.bubble-cup {
-  width: 180px;
-  height: 230px;
-  margin: 30px auto;
 
-  border: 5px solid #333;
-  border-radius: 20px;
-  overflow: hidden;
-
-  background: white;
+.app p {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  color: #777;
 }
-.tea-liquid {
-  height: 80%;
-  margin-top: 20%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
 
-  transition: background-color 0.5s;
-}
+/* ---------- Layout ---------- */
+
 .main-layout {
   display: flex;
-  justify-content: center;
+  gap: 40px;
   align-items: flex-start;
-  gap: 60px;
+}
 
-  margin-top: 40px;
+.options-panel,
+.preview-panel {
+  background: white;
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 15px 35px rgba(0,0,0,.08);
+}
+
+.options-panel {
+  flex: 1;
 }
 
 .preview-panel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 380px;
+}
+button {
+  margin: 8px;
+  padding: 12px 18px;
+
+  border: none;
+  border-radius: 999px;
+
+  background: #F7C8D0;
+  color: #4B3B38;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all .25s ease;
+}
+
+button:hover {
+  background: #EFB3C2;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,.12);
+}
+
+button:active {
+  transform: scale(.97);
+}
+
+.selected {
+  background: #C7B8EA;
+  color: white;
+  box-shadow: 0 8px 20px rgba(0,0,0,.15);
+}
+.options-panel h2 {
+  margin-top: 28px;
+  margin-bottom: 12px;
+
+  font-size: 1.2rem;
+}
+
+.options-panel h2:first-child {
+  margin-top: 0;
+}
+.drink-card {
+  text-align: center;
+}
+
+.drink-card h2 {
+  margin-bottom: 20px;
+}
+
+.drink-card h3 {
+  margin-top: 20px;
 }
 .cup-container {
   position: relative;
   width: 180px;
-  height: 260px;
+  height: 290px;
+  margin: 20px auto;
 }
 
-.cup {
-  position: absolute;
-  bottom: 0;
-
-  width: 160px;
-  height: 210px;
-
-  border: 5px solid #333;
-  border-radius: 20px 20px 35px 35px;
-
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-
-  overflow: hidden;
-
-  transition: background-color 0.5s;
-}
+/* Straw */
 
 .straw {
   position: absolute;
-
   width: 12px;
-  height: 100px;
+  height: 110px;
 
-  background: #333;
+  background: #444;
 
   top: 0;
   right: 45px;
 
   transform: rotate(15deg);
 
-  z-index: 2;
+  border-radius: 8px;
+
+  z-index: 5;
 }
 
+/* Lid */
+
+.lid {
+  position: absolute;
+
+  top: 45px;
+  left: 8px;
+
+  width: 150px;
+  height: 18px;
+
+  background: #4956ac;
+
+  border-radius: 12px;
+
+  z-index: 4;
+}
+
+/* Cup */
+
+.cup {
+  position: absolute;
+
+  bottom: 0;
+
+  width: 160px;
+  height: 220px;
+
+  border: 4px solid rgba(255,255,255,.8);
+
+  border-radius: 20px 20px 35px 35px;
+
+  overflow: hidden;
+
+  background: rgba(255,255,255,.25);
+
+  backdrop-filter: blur(8px);
+
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.12);
+}
+
+/* Liquid */
+
+.liquid {
+  position: absolute;
+
+  bottom: 0;
+
+  width: 100%;
+  height: 75%;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: flex-end;
+
+  transition: background-color .5s;
+}
+
+/* Pearls */
+
 .pearls {
-  font-size: 28px;
-  margin-bottom: 25px;
+  position: absolute;
+
+  bottom: 18px;
+  left: 0;
+
+  width: 100%;
+  height: 70px;
+}
+
+/* Individual pearl */
+
+.pearl {
+
+  position: absolute;
+
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+
+  background: #3B2416;
+
+  box-shadow:
+    inset -2px -2px 4px rgba(255,255,255,.25);
+
+  animation: bob 3s infinite ease-in-out;
+}
+
+/* Positions */
+
+.pearl1 {
+  left: 25px;
+  bottom: 5px;
+}
+
+.pearl2 {
+  left: 60px;
+  bottom: 22px;
+  animation-delay: .4s;
+}
+
+.pearl3 {
+  left: 95px;
+  bottom: 10px;
+  animation-delay: .8s;
+}
+
+.pearl4 {
+  left: 45px;
+  bottom: 42px;
+  animation-delay: 1.2s;
+}
+
+.pearl5 {
+  left: 115px;
+  bottom: 35px;
+  animation-delay: 1.6s;
+}
+
+/* Floating animation */
+
+@keyframes bob {
+
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+
+}
+/* Popping Boba */
+
+.popping-boba {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  gap: 8px;
+}
+
+
+.popping-boba span {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+
+  background: orange;
+
+  animation: bob 3s infinite ease-in-out;
+}
+
+
+/* Jelly */
+
+.jelly {
+  position:absolute;
+  bottom:20px;
+  display:flex;
+  gap:8px;
+}
+
+
+.jelly span {
+
+  width:20px;
+  height:20px;
+
+  background:#f6d365;
+
+  border-radius:5px;
+
+}
+
+
+/* Grass Jelly */
+
+.grass-jelly span {
+
+  display:inline-block;
+
+  width:22px;
+  height:22px;
+
+  background:#222;
+
+  margin:5px;
+
+}
+
+
+/* Cheese Foam */
+
+.cheese-foam {
+
+  position:absolute;
+
+  top:10px;
+
+  font-size:45px;
+
+}
+
+
+/* Red Bean */
+
+.red-bean {
+
+  position:absolute;
+
+  bottom:20px;
+
+  font-size:25px;
+
+}
+.popping-boba span,
+.jelly span,
+.grass-jelly span,
+.red-bean span {
+  animation: bob 3s infinite ease-in-out;
+}
+.popping-boba span:nth-child(2),
+.jelly span:nth-child(2),
+.red-bean span:nth-child(2) {
+  animation-delay: .5s;
+}
+
+
+.popping-boba span:nth-child(3) {
+  animation-delay: 1s;
+}
+
+
+.popping-boba span:nth-child(4) {
+  animation-delay: 1.5s;
+}
+.cheese-foam {
+  animation: floatFoam 3s infinite ease-in-out;
+}
+
+
+@keyframes floatFoam {
+
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+
+}
+.pearls {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  height: 80px;
+}
+
+
+.pearl {
+  position: absolute;
+
+  width: 18px;
+  height: 18px;
+
+  background: #3B2416;
+
+  border-radius: 50%;
+
+  box-shadow: inset -3px -3px 5px rgba(255,255,255,.2);
+
+  animation: bob 3s infinite ease-in-out;
+}
+
+
+.pearl1 {
+  left: 25px;
+  bottom: 5px;
+}
+
+
+.pearl2 {
+  left: 55px;
+  bottom: 25px;
+  animation-delay: .4s;
+}
+
+
+.pearl3 {
+  left: 90px;
+  bottom: 10px;
+  animation-delay: .8s;
+}
+
+
+.pearl4 {
+  left: 120px;
+  bottom: 35px;
+  animation-delay: 1.2s;
+}
+
+
+.pearl5 {
+  left: 70px;
+  bottom: 50px;
+  animation-delay: 1.6s;
+}
+.popping-boba {
+  position: absolute;
+  bottom: 15px;
+
+  width: 100%;
+  height: 90px;
+}
+
+
+.boba {
+
+  position: absolute;
+
+  width: 16px;
+  height: 16px;
+
+  border-radius: 50%;
+
+  background: #ff7f50;
+
+  box-shadow:
+    inset -3px -3px 5px rgba(255,255,255,.35);
+
+  animation: bob 3s infinite ease-in-out;
+
+}
+
+
+/* random-looking positions */
+
+.boba1 {
+  left: 20px;
+  bottom: 5px;
+}
+
+
+.boba2 {
+  left: 65px;
+  bottom: 30px;
+  background: #ff4d6d;
+  animation-delay: .5s;
+}
+
+
+.boba3 {
+  left: 110px;
+  bottom: 15px;
+  background: #ffd166;
+  animation-delay: 1s;
+}
+
+
+.boba4 {
+  left: 45px;
+  bottom: 55px;
+  background: #c77dff;
+  animation-delay: 1.5s;
+}
+
+
+.boba5 {
+  left: 125px;
+  bottom: 45px;
+  background: #ff9f1c;
+  animation-delay: 2s;
+}
+.liquid {
+  position: absolute;
+  bottom: 0;
+
+  width: 100%;
+  height: 75%;
+
+  overflow: hidden;
+}
+
+
+.liquid-wave {
+
+  position: absolute;
+
+  top: -8px;
+  left: -10%;
+
+  width: 120%;
+  height: 30px;
+
+  background: rgba(255,255,255,.35);
+
+  border-radius: 50%;
+
+  animation: wave 4s infinite ease-in-out;
+
+}
+
+
+@keyframes wave {
+
+  0% {
+    transform: translateX(-10px);
+  }
+
+  50% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    transform: translateX(-10px);
+  }
+
+}
+.glass-shine {
+
+  position:absolute;
+
+  top:15px;
+  left:18px;
+
+  width:20px;
+  height:150px;
+
+  background:rgba(255,255,255,.35);
+
+  border-radius:20px;
+
+  transform:rotate(10deg);
+
+  z-index:3;
+
+}
+.pearls,
+.popping-boba,
+.jelly,
+.grass-jelly,
+.red-bean {
+
+  z-index:3;
+
+}
+.liquid {
+
+  animation: liquidPulse 5s infinite ease-in-out;
+
+}
+
+
+@keyframes liquidPulse {
+
+  0% {
+    transform: scaleY(1);
+  }
+
+  50% {
+    transform: scaleY(1.02);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+
 }
