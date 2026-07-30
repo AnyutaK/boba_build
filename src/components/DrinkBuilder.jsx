@@ -8,6 +8,7 @@ function DrinkBuilder({ drink, setDrink }) {
   return (
     <div className="builder-container">
       <div className="options-panel">
+        <div className= "option-section">
         <h2>Choose your Tea Base 🍵</h2>
         {teaBases.map((tea) => (
           <button
@@ -23,6 +24,8 @@ function DrinkBuilder({ drink, setDrink }) {
             {tea}
           </button>
         ))}
+        </div>
+        <div className= "option-section">
         <h2>Sweetness 🍯</h2>
         {sweetnessLevels.map((level) => (
           <button
@@ -38,6 +41,8 @@ function DrinkBuilder({ drink, setDrink }) {
             {level}
           </button>
         ))}
+        </div>
+        <div className= "option-section">
         <h2>Ice ❄️</h2>
         {iceLevels.map((ice) => (
           <button
@@ -53,6 +58,8 @@ function DrinkBuilder({ drink, setDrink }) {
             {ice}
           </button>
         ))}
+        </div>
+        <div className= "option-section">
         <h2>Topping 🧋</h2>
         {toppings.map((item) => (
           <button
@@ -68,6 +75,7 @@ function DrinkBuilder({ drink, setDrink }) {
             {item}
           </button>
         ))}
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import DrinkBuilder from "./components/DrinkBuilder";
 import DrinkCard from "./components/DrinkCard";
+import ShareCard from "./components/ShareCard";
 
 function App() {
 
@@ -21,20 +22,27 @@ function App() {
 
     <div className="main-layout">
 
-      <DrinkBuilder 
-        drink={drink}
-        setDrink={setDrink}
-      />
+  <div className="left-side">
 
+    <DrinkBuilder 
+      drink={drink}
+      setDrink={setDrink}
+    />
 
-      <div className="preview-panel">
-
-        <DrinkCard drink={drink} />
-      </div>
-
-    </div>
+    <ShareCard drink={drink}/>
 
   </div>
-);}
+
+
+  <div className="preview-panel">
+
+    <DrinkCard drink={drink}/>
+
+  </div>
+
+  </div>
+  </div>
+  );
+ }
 
 export default App;

@@ -1,4 +1,6 @@
 import BubbleCup from "./BubbleCup";
+import DrinkDNA from "./DrinkDNA";
+
 function DrinkCard({ drink }) {
 
   function generateDrinkName(drink) {
@@ -27,7 +29,7 @@ function DrinkCard({ drink }) {
       return "🧋 Classic Bubble Love";
     }
 
-    return "✨ Custom Bubble Creation";
+    return " 🎀 Custom Bubble Creation";
   }
 
 
@@ -71,6 +73,7 @@ function DrinkCard({ drink }) {
 
 
   return (
+    <>
     <div className="drink-card">
 
 <h2>
@@ -96,22 +99,40 @@ function DrinkCard({ drink }) {
       <p>
         <strong>Topping:</strong> {drink.topping || "Not selected"}
       </p>
-      <h3>Flavor Profile ✨</h3>
+  </div>
+  
 
-        <p>
-        Sweet: {flavor.sweet}
-        </p>
 
-        <p>
-        Creamy: {flavor.creamy}
-        </p>
+  <div className="extra-cards">
 
-        <p>
-        Refreshing: {flavor.refreshing}
-        </p>
+    <div className ="flavor-card" >
 
-    </div>
+      <h3>
+        ✨ Flavor Profile
+      </h3>
+
+      <p>
+        Sweet:
+        {flavor.sweet}
+      </p>
+
+      <p>
+        Creamy:
+        {flavor.creamy}
+      </p>
+
+      <p>
+        Refreshing:
+        {flavor.refreshing}
+      </p>
+
+  </div>
+
+    <DrinkDNA drink={drink}/>
+
+  </div>
+    
+  </>
   );
-}
-
-export default DrinkCard;
+    }
+  export default DrinkCard;

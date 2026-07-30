@@ -28,6 +28,37 @@
 
   return "linear-gradient(#cffff1, #8ee3cf)";
 }
+function renderIce() {
+
+  if (drink.ice === "No Ice" || !drink.ice) {
+    return null;
+  }
+
+
+  let cubes = 2;
+
+  if (drink.ice === "Normal Ice") {
+    cubes = 4;
+  }
+
+  if (drink.ice === "Extra Ice") {
+    cubes = 6;
+  }
+
+
+  return (
+    <div className="ice-cubes">
+
+      {[...Array(cubes)].map((_, index) => (
+        <span 
+          key={index}
+          className={`ice ice${index + 1}`}
+        ></span>
+      ))}
+
+    </div>
+  );
+}
   function renderToppings() {
 
   if (!drink.topping) {
@@ -128,6 +159,7 @@
 >
 
   <div className="liquid-wave"></div>
+ {renderIce()}
 
   {renderToppings()}
 
